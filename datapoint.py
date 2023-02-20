@@ -1,8 +1,8 @@
 
 
 class DataPoint:
-    def __init_(self):
-        self.position = None
-        self.velocity = None
-        self.size = None
+    def __init_(self, position: tuple, velocity: tuple, size: tuple):
+        self.position = position
+        self.velocity = velocity
+        self.size = size
 
