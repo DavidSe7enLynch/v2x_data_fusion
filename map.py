@@ -3,15 +3,18 @@ from datapoint import DataPoint
 
 
 class Map:
-    def __init__(self, timestamp, size: tuple, datapoints: list[DataPoint]):
+    def __init__(self, timestamp, upper_left: tuple, size: tuple, datapoints: list[DataPoint]):
         self.timestamp = timestamp
+        self.upper_left = upper_left
         self.size = size
+        self.bottom_right = self.upper_left + self.size
         self.datapoints = datapoints
 
     def plot(self):
-        plt.xlim(0, map.size[0])
-        plt.ylim(0, map.size[1])
+        plt.xlim(self.upper_left[0], self.bottom_right[0])
+        plt.ylim(self.upper_left[1], self.bottom_right[1])
         plt.xlabel('x')
         plt.ylabel('y')
-        plt.title('')
+        plt.title(f'map at time stamp {self.timestamp}')
+
 
