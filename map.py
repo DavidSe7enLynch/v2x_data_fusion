@@ -16,5 +16,10 @@ class Map:
         plt.xlabel('x')
         plt.ylabel('y')
         plt.title(f'map at time stamp {self.timestamp}')
+        plt.plot(
+            [datapoint.position[0] for datapoint in self.datapoints],
+            [datapoint.position[1] for datapoint in self.datapoints]
+        )
+        plt.show()
 
 
