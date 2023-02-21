@@ -7,7 +7,7 @@ class Map:
         self.timestamp = timestamp
         self.upper_left = upper_left
         self.size = size
-        self.bottom_right = self.upper_left + self.size
+        self.bottom_right = ([sum(x) for x in zip(self.upper_left, self.size)])
         self.datapoints = datapoints
 
     def plot(self):
@@ -16,7 +16,7 @@ class Map:
         plt.xlabel('x')
         plt.ylabel('y')
         plt.title(f'map at time stamp {self.timestamp}')
-        plt.plot(
+        plt.scatter(
             [datapoint.position[0] for datapoint in self.datapoints],
             [datapoint.position[1] for datapoint in self.datapoints]
         )
